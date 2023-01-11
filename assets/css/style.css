@@ -1,0 +1,165 @@
+/* --------- Global style */
+
+body {
+    background-color: white;
+    font-family: "Raleway", sans-serif;
+    color: #445361;
+    text-align: center;
+}
+
+/* --------- Heading */
+
+.heading {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.logo {
+    height: 40px;
+    padding-right: 5px;
+}
+
+/* --------- Game layout */
+
+.game-area {
+    background-color: #E6ECF0;
+    box-sizing: border-box;
+    width: 90%;
+    height: 90vh;
+    max-height: 450px;
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
+}
+
+.controls-area {
+    width: 85%;
+    margin: 10px auto;
+}
+
+#whos-next {
+    border: 1px solid #445361;
+    color: #445361;
+    display: inline-block;
+    height: 25px;
+    width: 150px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: red;
+}
+
+.board-area {
+    width: 90%;
+    font-size: 2rem;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+#game-board {
+    border-collapse: collapse;
+    border: 16px solid yellow;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    margin: 5px auto;
+}
+      
+#game-board td, th {
+    border: 8px solid yellow;
+    padding: 10px 20px;
+}
+      
+#game-board th {
+    background-color: rgb(235,235,235);
+}
+      
+#game-board td {
+    text-align: center;
+}
+
+.score-area {
+    margin: 5px auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+#score-red {
+    color: red;
+    font-weight: bold;
+}
+
+#score-blue {
+    color: blue;
+    font-weight: bold;
+}
+
+.scores {
+    display: inline-block;
+    padding: 25px;
+}
+
+/* --------- Button */
+
+#new-game {
+    width: 150px;
+    height: 40px;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: white;
+    margin-top: 25px;
+    background-color: #445361;
+    border: 1px transparent;
+    border-radius: 10px;
+}
+
+#new-game:focus {
+    outline: none;
+}
+
+#new-game:active,
+#new-game:hover {
+    background-color: #0d1013;
+}
+
+/* --------- Media queries */
+
+@media (max-width: 414px) {
+    .controls-area {
+        width: 100%;
+    }
+
+    .game-area {
+        padding: 10% 0;
+        width: 100%;
+    }
+
+    #new-game {
+        margin-top: 0;
+    }
+
+    .score-area {
+        width: 100%;
+    }
+
+    .scores {
+        margin: 0.5em auto;
+        display: block;
+        padding: 5px;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .game-area {
+        height: 70vh;
+    }
+
+    .controls-area {
+        width: 75%;
+        margin: 10px auto;
+    }
+}
