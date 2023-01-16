@@ -61,6 +61,20 @@ function updateWhosTurnNext(whosNext) {
   }
 }
 
-function updateScores() {
+function updateScores(update) {
+  let redScore = document.getElementById('score-red');
+  let blueScore = document.getElementById('score-blue');
 
+  if (update === "reset") {
+    redScore.textContent = "Red 0";
+    blueScore.textContent = "Blue 0";
+  }
+  else if (update === "red") {
+    let score = Number(redScore.textContent.split(" ")[1]);
+    redScore.textContent = "Red " + score++;
+  }
+  else if (update === "blue") {
+    let score = Number(blueScore.textContent.split(" ")[1]);
+    blueScore.textContent = "Blue " + score++;
+  }
 }
