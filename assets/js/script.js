@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
   gameBoard.addEventListener("mouseover", gameBoardMouseover);
   gameBoard.addEventListener("mouseout", gameBoardMouseout);
 
+  updateWhosTurnNext("red");
 });
 
 function gameBoardClick(e) {
@@ -47,8 +48,17 @@ function dropCounter() {
     
 }
 
-function updateWhosTurnNext() {
-
+function updateWhosTurnNext(whosNext) {
+  let whosNextElement = document.getElementById('whos-next');
+  
+  if (whosNext === "red") {
+    whosNextElement.textContent = "Red's Turn Next";
+    whosNextElement.style.backgroundColor = "red";
+  }
+  else {
+    whosNextElement.textContent = "Blue's Turn Next";
+    whosNextElement.style.backgroundColor = "blue";
+  }
 }
 
 function updateScores() {
