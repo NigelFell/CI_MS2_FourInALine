@@ -71,10 +71,10 @@ function updateScores(update) {
   }
   else if (update === "red") {
     let score = Number(redScore.textContent.split(" ")[1]);
-    redScore.textContent = "Red " + score++;
+    redScore.textContent = "Red " + ++score;
   }
   else if (update === "blue") {
     let score = Number(blueScore.textContent.split(" ")[1]);
-    blueScore.textContent = "Blue " + score++;
+    blueScore.textContent = "Blue " + ++score;
   }
 }
