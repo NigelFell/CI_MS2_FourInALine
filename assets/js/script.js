@@ -44,6 +44,21 @@ function gameBoardMouseout(e) {
 function resetGameBoard() {
   gameBoard.initialise();
 
+  let gameTable = document.getElementById("game-board");
+  let tableRows = gameTable.rows;
+  let headerRow = tableRows[0].cells;
+  let cols = headerRow.length;
+
+  for (let headerCell = 0; headerCell < cols; headerCell++) {
+    headerRow[headerCell].innerHTML = " ";
+  }
+
+  for (let tableRow = 1; tableRow < tableRows.length; tableRow++) {
+    for (let tableCell = 0; tableCell < cols; tableCell++) {
+      tableRows[tableRow].cells[tableCell].innerHTML = "w";
+    }
+  }
+
 }
 
 function updateGameBoard() {
