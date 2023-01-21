@@ -8,11 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
       alert("You clicked New Game!");
   });
 
-  let gameBoard = document.getElementById("game-board");
-  gameBoard.addEventListener("click", gameBoardClick);
-  gameBoard.addEventListener("mouseover", gameBoardMouseover);
-  gameBoard.addEventListener("mouseout", gameBoardMouseout);
+  let gameTable = document.getElementById("game-board");
+  gameTable.addEventListener("click", gameBoardClick);
+  gameTable.addEventListener("mouseover", gameBoardMouseover);
+  gameTable.addEventListener("mouseout", gameBoardMouseout);
 
+  resetGameBoard();
   updateWhosTurnNext("red");
 });
 
@@ -41,10 +42,11 @@ function gameBoardMouseout(e) {
 }
 
 function resetGameBoard() {
+  gameBoard.initialise();
 
 }
 
-function dropCounter() {
+function updateGameBoard() {
     
 }
 
@@ -76,5 +78,64 @@ function updateScores(update) {
   else if (update === "blue") {
     let score = Number(blueScore.textContent.split(" ")[1]);
     blueScore.textContent = "Blue " + ++score;
+  }
+}
+
+let gameBoard = {
+  nextGo: "red",
+  board: [],
+
+  /**
+   * initialise funtion
+   * Clears the game board ready for a new game
+   * Creates 7 columns, each with 6 counters, adding each column to the board
+  */
+  initialise: function() {
+    this.board = [];
+
+    for (let rowNum = 0; rowNum < 7; rowNum++) {
+      let column = [];
+
+      for (let columnNum = 0; columnNum < 6; columnNum++) {
+
+        let counter = { dropped: false, colour: "white" };
+        column.push(counter);
+      }
+
+      this.board.push(column);
+      }
+  },
+
+  /**
+   * dropCounter(column number) funtion
+   * Called on each players turn,
+   * returns the row number 0 to 5 if the counter could be dropped, 
+   * i.e. the column wasn't already full, otherwise -1
+  */
+  dropCounter: function(columnNum) {
+    let column = this.board[columnNum];
+
+    if (column[0].dropped) {
+      return -1;
+    }
+
+    let rowNum = 5;
+    while (column[rowNum].dropped) {
+      rowNum--;
+    }
+
+    this.board[columnNum][rowNum].dropped = true;
+    this.board[columnNum][rowNum].colour = this.nextGo;
+    this.nextGo = this.nextGo === "red" ? "blue" : "red";
+    return rowNum;
+  },
+
+  /**
+   * checkWinner(column number, row number) funtion
+   * Called after each players turn, returns true if the last counter dropped is the winner 
+   * otherwise false
+  */
+  checkWinner: function(columnNum, rowNum) {
+
   }
 }
