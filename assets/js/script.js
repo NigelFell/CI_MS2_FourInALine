@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   newGameButton.addEventListener("click", function() {
       alert("You clicked New Game!");
+      resetGameBoard();
   });
 
   let gameTable = document.getElementById("game-board");
@@ -21,7 +22,8 @@ function gameBoardClick(e) {
   let boardElement = e.target;
 
   if (boardElement.tagName === "TH") {
-    console.log("Column " + boardElement.cellIndex + " clicked!");
+    // console.log("Column " + boardElement.cellIndex + " clicked!");
+    updateGameBoard(boardElement.cellIndex);
   }
 }
 
@@ -29,7 +31,16 @@ function gameBoardMouseover(e) {
   let boardElement = e.target;
 
   if (boardElement.tagName === "TH") {
-    console.log("Mouse over column " + boardElement.cellIndex);
+    // console.log("Mouse over column " + boardElement.cellIndex);
+    let gameTable = document.getElementById("game-board");
+    let whosNextElement = document.getElementById('whos-next');
+  
+    if (whosNextElement.style.backgroundColor === "red") {
+      gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = "r";
+    }
+    else {
+      gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = "b";
+    }
   }
 }
 
@@ -37,7 +48,9 @@ function gameBoardMouseout(e) {
   let boardElement = e.target;
 
   if (boardElement.tagName === "TH") {
-    console.log("Mouse out column " + boardElement.cellIndex);
+    // console.log("Mouse out column " + boardElement.cellIndex);
+    let gameTable = document.getElementById("game-board");
+    gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = " ";
   }
 }
 
@@ -61,8 +74,13 @@ function resetGameBoard() {
 
 }
 
-function updateGameBoard() {
+function updateGameBoard(columnNum) {
+  let gameTable = document.getElementById("game-board");
+  let rowNum = gameBoard.dropCounter(columnNum);
+
+  if (rowNum < 0) {
     
+  }
 }
 
 function updateWhosTurnNext(whosNext) {
