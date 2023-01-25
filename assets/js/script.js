@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   newGameButton.addEventListener("click", function() {
       alert("You clicked New Game!");
       resetGameBoard();
+      updateWhosTurnNext();
   });
 
   let gameTable = document.getElementById("game-board");
@@ -15,15 +16,23 @@ document.addEventListener("DOMContentLoaded", function() {
   gameTable.addEventListener("mouseout", gameBoardMouseout);
 
   resetGameBoard();
-  updateWhosTurnNext("red");
+  updateWhosTurnNext();
 });
 
 function gameBoardClick(e) {
   let boardElement = e.target;
+  let whosNextElement = document.getElementById('whos-next');
 
-  if (boardElement.tagName === "TH") {
-    // console.log("Column " + boardElement.cellIndex + " clicked!");
-    updateGameBoard(boardElement.cellIndex);
+  if (boardElement.tagName === "TH" && whosNextElement.style.backgroundColor !== "green") {
+    if (updateGameBoard(boardElement.cellIndex)) {
+      if (whosNextElement.style.backgroundColor === "red") {
+        whosNextElement.innerHTML = "Red Wins!";
+      }
+      else {
+        whosNextElement.innerHTML = "Blue Wins!";
+      }
+      whosNextElement.style.backgroundColor = "green";
+    }
   }
 }
 
@@ -79,14 +88,38 @@ function updateGameBoard(columnNum) {
   let rowNum = gameBoard.dropCounter(columnNum);
 
   if (rowNum < 0) {
-    
+    alert("You clicked a column that was full!");
   }
+  else {
+    let whosNextElement = document.getElementById('whos-next');
+  
+    if (whosNextElement.style.backgroundColor === "red") {
+      gameTable.rows[rowNum + 1].cells[columnNum].innerHTML = "r";
+    }
+    else {
+      gameTable.rows[rowNum + 1].cells[columnNum].innerHTML = "b";
+    }
+    
+    if (gameBoard.checkWinner(columnNum, rowNum)) {
+      if (whosNextElement.style.backgroundColor === "red") {
+        updateScores("red");
+      }
+      else {
+        updateScores("blue");
+      }
+      return true;
+    }
+    else {
+      updateWhosTurnNext();
+    }
+  }
+  return false;
 }
 
-function updateWhosTurnNext(whosNext) {
+function updateWhosTurnNext() {
   let whosNextElement = document.getElementById('whos-next');
   
-  if (whosNext === "red") {
+  if (whosNextElement.style.backgroundColor !== "red") {
     whosNextElement.textContent = "Red's Turn Next";
     whosNextElement.style.backgroundColor = "red";
   }
@@ -131,8 +164,8 @@ let gameBoard = {
 
       for (let columnNum = 0; columnNum < 6; columnNum++) {
 
-        let counter = { dropped: false, colour: "white" };
-        column.push(counter);
+        //let counter = { dropped: false, colour: "white" };
+        column.push("white");
       }
 
       this.board.push(column);
@@ -148,17 +181,17 @@ let gameBoard = {
   dropCounter: function(columnNum) {
     let column = this.board[columnNum];
 
-    if (column[0].dropped) {
+    if (column[0] !== "white") {
       return -1;
     }
 
     let rowNum = 5;
-    while (column[rowNum].dropped) {
+    while (column[rowNum] !== "white") {
       rowNum--;
     }
 
-    this.board[columnNum][rowNum].dropped = true;
-    this.board[columnNum][rowNum].colour = this.nextGo;
+    //this.board[columnNum][rowNum].dropped = true;
+    this.board[columnNum][rowNum] = this.nextGo;
     this.nextGo = this.nextGo === "red" ? "blue" : "red";
     return rowNum;
   },
@@ -169,6 +202,30 @@ let gameBoard = {
    * otherwise false
   */
   checkWinner: function(columnNum, rowNum) {
+	  let column = this.board[columnNum];
+	  let lastCounter = column[rowNum];
+	
+    // Check for win in column
+    if (rowNum <= 2) {
+      for (let rowCount = 1; rowCount < 3; rowCount++) {
+        if (column[rowNum + rowCount] !== lastCounter) {
+          break;
+        }
+        return true;
+      }
+    }
+    // Check for win in row
+    for (let columnCount = 0; columnCount < 6; columnCount++) {
+      let rowWinCount = 0;
+      if (column[columnCount] === lastCounter &&
+          column[columnCount + 1] === lastCounter) {
+        rowWinCount++;
+        if (rowWinCount === 4) {
+          return true;
+        }
+	    }
+	  }
 
+    return false;
   }
 }
