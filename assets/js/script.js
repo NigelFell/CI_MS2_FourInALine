@@ -40,7 +40,6 @@ function gameBoardMouseover(e) {
   let boardElement = e.target;
 
   if (boardElement.tagName === "TH") {
-    // console.log("Mouse over column " + boardElement.cellIndex);
     let gameTable = document.getElementById("game-board");
     let whosNextElement = document.getElementById('whos-next');
   
@@ -57,7 +56,6 @@ function gameBoardMouseout(e) {
   let boardElement = e.target;
 
   if (boardElement.tagName === "TH") {
-    // console.log("Mouse out column " + boardElement.cellIndex);
     let gameTable = document.getElementById("game-board");
     gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = " ";
   }
@@ -203,28 +201,50 @@ let gameBoard = {
   */
   checkWinner: function(columnNum, rowNum) {
 	  let column = this.board[columnNum];
-	  let lastCounter = column[rowNum];
+	  let counterColour = column[rowNum];
 	
     // Check for win in column
     if (rowNum <= 2) {
       for (let rowCount = 1; rowCount < 3; rowCount++) {
-        if (column[rowNum + rowCount] !== lastCounter) {
+        if (column[rowNum + rowCount] !== counterColour) {
           break;
         }
         return true;
       }
     }
+
     // Check for win in row
+    let rowWinCount = 0;
     for (let columnCount = 0; columnCount < 6; columnCount++) {
-      let rowWinCount = 0;
-      if (column[columnCount] === lastCounter &&
-          column[columnCount + 1] === lastCounter) {
+      if (this.board[columnCount][rowNum] === counterColour &&
+          this.board[columnCount + 1][rowNum] === counterColour) {
         rowWinCount++;
-        if (rowWinCount === 4) {
+        if (rowWinCount === 3) {
           return true;
         }
-	    }
-	  }
+      }
+      else {
+        rowWinCount = 0;
+      }
+    }
+
+	  // Check for win diagonal going right
+
+//	startColumn = 	
+
+	// if (columnNum === 0) {
+	//     if (rowNum >= 3) {
+	// 	for (let columnCount = columnNum + 1; columnCount < columnNum + 3; columnCount++) {
+	// 	    	if (column[rowNum].colour !== this.board[columnNum][rowNum].colour) {
+	// 		    break;
+	// 		}
+	// 	    }
+	// 	}
+	//     return true;
+	//     }
+	//     let columnCount = 1;
+	//     for (let rowCount = 1
+	// }
 
     return false;
   }
