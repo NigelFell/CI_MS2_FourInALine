@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
   let newGameButton = document.getElementById("new-game");
 
   newGameButton.addEventListener("click", function() {
-      alert("You clicked New Game!");
       resetGameBoard();
       updateWhosTurnNext();
   });
@@ -32,6 +31,9 @@ function gameBoardClick(e) {
         whosNextElement.innerHTML = "Blue Wins!";
       }
       whosNextElement.style.backgroundColor = "green";
+    }
+    else {
+      gameBoardMouseover(e);
     }
   }
 }
@@ -205,46 +207,58 @@ let gameBoard = {
 	
     // Check for win in column
     if (rowNum <= 2) {
-      for (let rowCount = 1; rowCount < 3; rowCount++) {
+      for (let rowCount = 1; rowCount < 4; rowCount++) {
         if (column[rowNum + rowCount] !== counterColour) {
           break;
         }
-        return true;
+        if (rowCount === 3) {
+          console.log("Win in column!");
+          return true;
+        }
       }
     }
 
     // Check for win in row
-    let rowWinCount = 0;
+    let winCount = 0;
     for (let columnCount = 0; columnCount < 6; columnCount++) {
       if (this.board[columnCount][rowNum] === counterColour &&
           this.board[columnCount + 1][rowNum] === counterColour) {
-        rowWinCount++;
-        if (rowWinCount === 3) {
+        winCount++;
+        if (winCount === 3) {
+          console.log("Win in row!");
           return true;
         }
       }
       else {
-        rowWinCount = 0;
+        winCount = 0;
       }
     }
 
-	  // Check for win diagonal going right
+	  // Check for win diagonal going left to right
+    let startRow = columnNum + rowNum > 5 ? 5 : columnNum + rowNum;
+    let startCol = columnNum + rowNum < 5 ? 0 : columnNum + rowNum - 5;
+    console.log("Check diagonal going right " + startCol + " / " + startRow);
+    winCount = 0;
 
-//	startColumn = 	
-
-	// if (columnNum === 0) {
-	//     if (rowNum >= 3) {
-	// 	for (let columnCount = columnNum + 1; columnCount < columnNum + 3; columnCount++) {
-	// 	    	if (column[rowNum].colour !== this.board[columnNum][rowNum].colour) {
-	// 		    break;
-	// 		}
-	// 	    }
-	// 	}
-	//     return true;
-	//     }
-	//     let columnCount = 1;
-	//     for (let rowCount = 1
-	// }
+    for (let nextCount = 0; nextCount < 6; nextCount++) {
+      let nextCol = startCol + nextCount + 1;
+      let nextRow = (startRow - nextCount) - 1;
+      
+      if (nextCol > 6 || nextRow < 0) {
+        break;
+      }
+      
+      if (this.board[startCol + nextCount][startRow - nextCount] === counterColour &&
+          this.board[nextCol][nextRow] === counterColour) {
+        winCount++;
+        if (winCount === 3) {
+          return true;
+        }
+      }
+      else {
+        winCount = 0;
+      }
+    }
 
     return false;
   }
