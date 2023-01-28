@@ -234,7 +234,7 @@ let gameBoard = {
       }
     }
 
-	  // Check for win diagonal going left to right
+	  // Check for win diagonal going right
     let startRow = columnNum + rowNum > 5 ? 5 : columnNum + rowNum;
     let startCol = columnNum + rowNum < 5 ? 0 : columnNum + rowNum - 5;
     console.log("Check diagonal going right " + startCol + " / " + startRow);
@@ -252,6 +252,34 @@ let gameBoard = {
           this.board[nextCol][nextRow] === counterColour) {
         winCount++;
         if (winCount === 3) {
+          console.log("Win in diagonal going right!");
+          return true;
+        }
+      }
+      else {
+        winCount = 0;
+      }
+    }
+
+	  // Check for win diagonal going left
+    startRow = (6 - columnNum) + rowNum > 5 ? 5 : (6 - columnNum) + rowNum;
+    startCol = columnNum + (5 - rowNum) > 6 ? 6 : columnNum + (5 - rowNum);
+    console.log("Check diagonal going left " + startCol + " / " + startRow);
+    winCount = 0;
+
+    for (let nextCount = 0; nextCount < 6; nextCount++) {
+      let nextCol = (startCol - nextCount) - 1;
+      let nextRow = (startRow - nextCount) - 1;
+      
+      if (nextCol < 0 || nextRow < 0) {
+        break;
+      }
+      
+      if (this.board[startCol - nextCount][startRow - nextCount] === counterColour &&
+          this.board[nextCol][nextRow] === counterColour) {
+        winCount++;
+        if (winCount === 3) {
+          console.log("Win in diagonal going left!");
           return true;
         }
       }
