@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
   gameTable.addEventListener("mouseover", gameBoardMouseover);
   gameTable.addEventListener("mouseout", gameBoardMouseout);
 
+  buildGameTable();
   resetGameBoard();
   updateWhosTurnNext();
 });
@@ -87,6 +88,49 @@ function gameBoardMouseout(e) {
 
     counters[boardElement.cellIndex].style.backgroundColor = "white";
   }
+}
+
+function buildGameTable() {
+  let gameTable = document.getElementById("game-board");
+
+  let tableHtml = `
+    <thead>
+    </thead>
+    <tbody>
+    </tbody>
+  `;
+  gameTable.innerHTML= tableHtml;
+  
+  let theadHtml = `
+    <tr>  
+  `;
+  for (let col = 0; col < 7; col++) {
+    theadHtml += `
+        <th><span class="counter"></span></th>
+    `;
+  }
+  theadHtml += `
+    </tr>  
+  `;
+  let thead = gameTable.getElementsByTagName('thead')[0];
+  thead.innerHTML = theadHtml;
+
+  let tbodyHtml = '';
+  for (let row = 0; row < 6; row++) {
+    tbodyHtml += `
+      <tr>  
+    `;
+    for (let col = 0; col < 7; col++) {
+      tbodyHtml += `
+          <td><span class="counter"></span></td>
+      `;
+    }
+    tbodyHtml += `
+      </tr>  
+    `;
+  }
+  let tbody = gameTable.getElementsByTagName('tbody')[0];
+  tbody.innerHTML = tbodyHtml;
 }
 
 function resetGameBoard() {
@@ -214,7 +258,8 @@ let gameBoard = {
 
   /**
    * checkWinner(column number, row number) funtion
-   * Called after each players turn, returns true if the last counter dropped is the winner 
+   * Called after each players turn,
+   * returns true if the last counter dropped is the winner 
    * otherwise false
   */
   checkWinner: function(columnNum, rowNum) {
