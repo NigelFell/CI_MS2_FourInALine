@@ -71,6 +71,13 @@ function gameBoardMouseover(e) {
       counters[boardElement.cellIndex].style.backgroundColor = "blue";
     }
 
+    // Make sure all the other headings are cleared
+    for (let col = 0; col < 7; col++) {
+      if (col !== boardElement.cellIndex) {
+        counters[col].style.backgroundColor = "white";
+      }
+    }
+
     currentElement = boardElement;
   }
 }
@@ -250,7 +257,6 @@ let gameBoard = {
       rowNum--;
     }
 
-    //this.board[columnNum][rowNum].dropped = true;
     this.board[columnNum][rowNum] = this.nextGo;
     this.nextGo = this.nextGo === "red" ? "blue" : "red";
     return rowNum;
