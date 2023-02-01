@@ -66,7 +66,7 @@ body {
       
 #game-board td, th {
     border: 8px solid yellow;
-    padding: 10px 20px;
+    padding: 5px;
 }
       
 #game-board th {
@@ -75,6 +75,19 @@ body {
       
 #game-board td {
     text-align: center;
+}
+
+.counter {
+    background-color:white;
+    display:block;
+    height:30px;
+    width:30px;
+    border-radius:50%;
+    /* border:5px solid #000; */
+    /* margin:auto; */
+    /* color:#fff; */
+    /* line-height:30px; */
+    /* text-align:center     */
 }
 
 .score-area {

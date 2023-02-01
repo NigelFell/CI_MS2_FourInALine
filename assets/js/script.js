@@ -20,6 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function gameBoardClick(e) {
   let boardElement = e.target;
+  let currentTarget = e.currentTarget;
+
+  // If the target was a counter get it's parent
+  if (boardElement.tagName !== "TH" && currentTarget.tagName === "TABLE") {
+    boardElement = boardElement.parentNode;
+  }
+
   let whosNextElement = document.getElementById('whos-next');
 
   if (boardElement.tagName === "TH" && whosNextElement.style.backgroundColor !== "green") {
@@ -38,28 +45,47 @@ function gameBoardClick(e) {
   }
 }
 
+// Used to detect if the mouse moving over the counter in the same cell
+// in gameBoardMouseout
+let currentElement = null;
+
 function gameBoardMouseover(e) {
   let boardElement = e.target;
+  let currentTarget = e.currentTarget;
+
+  // If the target was a counter get it's parent
+  if (boardElement.tagName !== "TH" && currentTarget.tagName === "TABLE") {
+    boardElement = boardElement.parentNode;
+  }
 
   if (boardElement.tagName === "TH") {
     let gameTable = document.getElementById("game-board");
     let whosNextElement = document.getElementById('whos-next');
+    let counters = gameTable.getElementsByClassName("counter");
   
     if (whosNextElement.style.backgroundColor === "red") {
-      gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = "r";
+      counters[boardElement.cellIndex].style.backgroundColor = "red";
     }
     else {
-      gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = "b";
+      counters[boardElement.cellIndex].style.backgroundColor = "blue";
     }
+
+    currentElement = boardElement;
   }
 }
 
 function gameBoardMouseout(e) {
   let boardElement = e.target;
 
+  // Is the mouse moving over the counter in the same cell?
+  let relatedTarget = e.relatedTarget;
+  if (relatedTarget.parentNode == currentElement) return;
+
   if (boardElement.tagName === "TH") {
     let gameTable = document.getElementById("game-board");
-    gameTable.rows[0].cells[boardElement.cellIndex].innerHTML = " ";
+    let counters = gameTable.getElementsByClassName("counter");
+
+    counters[boardElement.cellIndex].style.backgroundColor = "white";
   }
 }
 
@@ -67,20 +93,11 @@ function resetGameBoard() {
   gameBoard.initialise();
 
   let gameTable = document.getElementById("game-board");
-  let tableRows = gameTable.rows;
-  let headerRow = tableRows[0].cells;
-  let cols = headerRow.length;
+  let counters = gameTable.getElementsByClassName("counter");
 
-  for (let headerCell = 0; headerCell < cols; headerCell++) {
-    headerRow[headerCell].innerHTML = " ";
+  for (let counter of counters) {
+    counter.style.backgroundColor = "white";
   }
-
-  for (let tableRow = 1; tableRow < tableRows.length; tableRow++) {
-    for (let tableCell = 0; tableCell < cols; tableCell++) {
-      tableRows[tableRow].cells[tableCell].innerHTML = "w";
-    }
-  }
-
 }
 
 function updateGameBoard(columnNum) {
@@ -92,12 +109,13 @@ function updateGameBoard(columnNum) {
   }
   else {
     let whosNextElement = document.getElementById('whos-next');
-  
+    let counters = gameTable.getElementsByClassName("counter");
+    
     if (whosNextElement.style.backgroundColor === "red") {
-      gameTable.rows[rowNum + 1].cells[columnNum].innerHTML = "r";
+      counters[((rowNum + 1) * 7) + columnNum].style.backgroundColor = "red";
     }
     else {
-      gameTable.rows[rowNum + 1].cells[columnNum].innerHTML = "b";
+      counters[((rowNum + 1) * 7) + columnNum].style.backgroundColor = "blue";
     }
     
     if (gameBoard.checkWinner(columnNum, rowNum)) {
@@ -163,13 +181,11 @@ let gameBoard = {
       let column = [];
 
       for (let columnNum = 0; columnNum < 6; columnNum++) {
-
-        //let counter = { dropped: false, colour: "white" };
         column.push("white");
       }
 
       this.board.push(column);
-      }
+    }
   },
 
   /**
@@ -237,7 +253,7 @@ let gameBoard = {
 	  // Check for win diagonal going right
     let startRow = columnNum + rowNum > 5 ? 5 : columnNum + rowNum;
     let startCol = columnNum + rowNum < 5 ? 0 : columnNum + rowNum - 5;
-    console.log("Check diagonal going right " + startCol + " / " + startRow);
+    // console.log("Check diagonal going right " + startCol + " / " + startRow);
     winCount = 0;
 
     for (let nextCount = 0; nextCount < 6; nextCount++) {
@@ -264,7 +280,7 @@ let gameBoard = {
 	  // Check for win diagonal going left
     startRow = (6 - columnNum) + rowNum > 5 ? 5 : (6 - columnNum) + rowNum;
     startCol = columnNum + (5 - rowNum) > 6 ? 6 : columnNum + (5 - rowNum);
-    console.log("Check diagonal going left " + startCol + " / " + startRow);
+    // console.log("Check diagonal going left " + startCol + " / " + startRow);
     winCount = 0;
 
     for (let nextCount = 0; nextCount < 6; nextCount++) {
