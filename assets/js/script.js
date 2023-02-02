@@ -113,7 +113,7 @@ function buildGameTable() {
   `;
   for (let col = 0; col < 7; col++) {
     theadHtml += `
-        <th><span class="counter"></span></th>
+        <th><span class="counter no-border"></span></th>
     `;
   }
   theadHtml += `
