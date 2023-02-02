@@ -1,6 +1,5 @@
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
-
 document.addEventListener("DOMContentLoaded", function() {
   let newGameButton = document.getElementById("new-game");
 
@@ -19,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
   updateWhosTurnNext();
 });
 
+/**
+ * gameBoardClick(event) funtion
+ * Handle game table header mouse click -
+ * "drop" a counter, update the game board and check for a winner...
+*/
 function gameBoardClick(e) {
   let boardElement = e.target;
   let currentTarget = e.currentTarget;
@@ -50,6 +54,10 @@ function gameBoardClick(e) {
 // in gameBoardMouseout
 let currentElement = null;
 
+/**
+ * gameBoardMouseover(event) funtion
+ * Show a counter in the correct game table header column
+*/
 function gameBoardMouseover(e) {
   let boardElement = e.target;
   let currentTarget = e.currentTarget;
@@ -82,6 +90,10 @@ function gameBoardMouseover(e) {
   }
 }
 
+/**
+ * gameBoardMouseout(event) funtion
+ * Hide a counter in the correct game table header column
+*/
 function gameBoardMouseout(e) {
   let boardElement = e.target;
 
@@ -97,6 +109,10 @@ function gameBoardMouseout(e) {
   }
 }
 
+/**
+ * buildGameTable() funtion
+ * Build the HTML to create the game table
+*/
 function buildGameTable() {
   let gameTable = document.getElementById("game-board");
 
@@ -113,7 +129,7 @@ function buildGameTable() {
   `;
   for (let col = 0; col < 7; col++) {
     theadHtml += `
-        <th><span class="counter no-border"></span></th>
+        <th><span class="counter"></span></th>
     `;
   }
   theadHtml += `
@@ -140,6 +156,10 @@ function buildGameTable() {
   tbody.innerHTML = tbodyHtml;
 }
 
+/**
+ * resetGameBoard() funtion
+ * Initialise the game board object and clear the game board table
+*/
 function resetGameBoard() {
   gameBoard.initialise();
 
@@ -151,6 +171,14 @@ function resetGameBoard() {
   }
 }
 
+/**
+ * updateGameBoard(column number) funtion
+ * Drops a counter in the passed game table column,
+ * if the column is full alerts the user otherwise
+ * shows the counter in the game table and checks for a winner
+ * Returns true if there is a winner and updates the scores
+ * otherwise false and updates who's turn next
+*/
 function updateGameBoard(columnNum) {
   let gameTable = document.getElementById("game-board");
   let rowNum = gameBoard.dropCounter(columnNum);
@@ -185,6 +213,10 @@ function updateGameBoard(columnNum) {
   return false;
 }
 
+/**
+ * updateWhosTurnNext() funtion
+ * Updates the who's next text element
+*/
 function updateWhosTurnNext() {
   let whosNextElement = document.getElementById('whos-next');
   
@@ -198,6 +230,12 @@ function updateWhosTurnNext() {
   }
 }
 
+/**
+ * updateScores(update type) funtion
+ * Updates the score red or blue text elements,
+ * depending on the update type "red" or "blue"
+ * If the update type is "reset" set both to 0
+*/
 function updateScores(update) {
   let redScore = document.getElementById('score-red');
   let blueScore = document.getElementById('score-blue');
@@ -216,6 +254,11 @@ function updateScores(update) {
   }
 }
 
+/**
+ * gameBoard object
+ * Contains the data structure for the game board storage,
+ * functions to manipulate that storage and algorithm to check for a winner
+*/
 let gameBoard = {
   nextGo: "red",
   board: [],

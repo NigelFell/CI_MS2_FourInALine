@@ -40,14 +40,12 @@ body {
 
 #whos-next {
     border: 1px solid #445361;
-    /* color: #445361; */
     color: black;
     display: inline-block;
     height: 25px;
     width: 150px;
     font-size: 1.2rem;
     text-align: center;
-    /* background-color: blue; */
 }
 
 .board-area {
@@ -73,9 +71,7 @@ body {
       
 #game-board th {
     background-color: rgb(235,235,235);
-    border: 0;
-    padding: 8px;
-    /* border-top: 0; */
+    border-top: 0;
 }
       
 #game-board td {
@@ -85,15 +81,9 @@ body {
 .counter {
     background-color: white;
     display: block;
-    height:30px;
+    height: 30px;
     width: 30px;
-    /* width: 100%; */
     border-radius: 50%;
-    /* border:5px solid #000; */
-    /* margin:auto; */
-    /* color:#fff; */
-    /* line-height:30px; */
-    /* text-align:center     */
 }
 
 .score-area {
