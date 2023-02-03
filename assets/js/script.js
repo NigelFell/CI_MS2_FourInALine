@@ -1,5 +1,6 @@
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
+// Then build the game table, reset the game board and update who's next
 document.addEventListener("DOMContentLoaded", function() {
   let newGameButton = document.getElementById("new-game");
 

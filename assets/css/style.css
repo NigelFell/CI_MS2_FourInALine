@@ -12,6 +12,7 @@ body {
 .heading {
     text-align: center;
     font-size: 2.5rem;
+    margin: 10px;
 }
 
 .logo {
@@ -39,20 +40,24 @@ body {
 }
 
 #whos-next {
-    border: 1px solid #445361;
-    color: black;
+    border: 2px solid #445361;
+    color: rgb(247, 240, 154);
     display: inline-block;
     height: 25px;
-    width: 150px;
+    width: 175px;
     font-size: 1.2rem;
+    font-weight: bold;
     text-align: center;
+    padding: 3px 0;
+    letter-spacing: 0.5px;
+    margin: 5px;
 }
 
 .board-area {
     width: 90%;
     font-size: 2rem;
     margin: 0 auto;
-    padding: 50px 0;
+    padding: 10px 0;
 }
 
 #game-board {
@@ -104,7 +109,8 @@ body {
 
 .scores {
     display: inline-block;
-    padding: 25px;
+    padding: 3px;
+    margin: 0;
 }
 
 /* --------- Button */
@@ -116,7 +122,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: white;
-    margin-top: 25px;
+    /* margin-top: 10px; */
+    margin: 5px;
     background-color: #445361;
     border: 1px transparent;
     border-radius: 10px;
@@ -135,12 +142,12 @@ body {
 
 @media (max-width: 414px) {
     .controls-area {
-        width: 100%;
+        width: 100vw;
     }
 
     .game-area {
-        padding: 10% 0;
-        width: 100%;
+        padding: 5% 0;
+        width: 100vw;
     }
 
     #new-game {
@@ -148,7 +155,7 @@ body {
     }
 
     .score-area {
-        width: 100%;
+        width: 100vw;
     }
 
     .scores {
@@ -164,11 +171,12 @@ body {
 
 @media (max-width: 320px) {
     .game-area {
-        height: 70vh;
+        height: 100vh;
+        width: 320px;
     }
 
-    .controls-area {
-        width: 75%;
-        margin: 10px auto;
+    .counter {
+        height: 20px;
+        width: 20px;
     }
 }
