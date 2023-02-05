@@ -6,7 +6,7 @@
 
 This is the website for a Four in a Line Game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
 
-![View a screenshot of the responsive website](assets/docs/responsive.png)
+![A screenshot of the responsive website](assets/docs/responsive.png)
 
 ## User Experience (UX)
 
@@ -16,10 +16,11 @@ This is the website for a Four in a Line Game. It is designed to be responsive a
 
         1. As a First Time Visitor, I want to easily understand the main purpose of the site.
         2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a clear presentation that is responsive on different devices.
-        3. As a First Time Visitor, I want to be able to view current scores.
-        4. As a First Time Visitor, I want to be able to see who's turn it is next.
-        5. As a First Time Visitor, I want to be able to see see the winner.
-        6. As a First Time Visitor, I want to be able to reset the game and start a new one.
+        3. As a First Time Visitor, I want to be able to view how to play the game and the objective.
+        4. As a First Time Visitor, I want to be able to view current scores.
+        5. As a First Time Visitor, I want to be able to see who's turn it is next.
+        6. As a First Time Visitor, I want to be able to see see the winner.
+        7. As a First Time Visitor, I want to be able to reset the game and start a new one.
         
     -   #### Returning Visitor Goals
 
@@ -33,11 +34,11 @@ This is the website for a Four in a Line Game. It is designed to be responsive a
     -   #### Colour Scheme
         -   To create a modern look and feel that is familiar to the user who has played the physical version of the Four in a Line game.
     -   #### Typography
-        -   Lato is the main font used on the site with Oswald used for the headings (h2). Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. Lato and Oswald fonts work well together. They are professional and readable fonts that still have charm and character.
+        -   Raleway is the font used on the site. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. The Raleway font is an elegant sans-serif typeface.
     -   #### Imagery
-        -   Imagery is important. The background images are designed to be striking and catch the user's attention.
+        -   Imagery is important but has been kept to a minimum to improve the sites upload time.
     
-    -   [View a screenshot of the visual design elements](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/user-experience-design.jpg)
+    -   ![A screenshot of the visual design elements](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/user-experience-design.jpg)
 
 *   ### Wireframes
 
