@@ -115,6 +115,10 @@ body {
     margin: 0;
 }
 
+.rules-area {
+    text-align: left;
+}
+
 /* --------- Button */
 
 #new-game {
