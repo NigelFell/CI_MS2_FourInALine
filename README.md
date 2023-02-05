@@ -2,11 +2,11 @@
 
 <h1 align="center">Four in a Line</h1>
 
-[View the live project here.]( https://nigelfell.github.io/CI_MS2_FourInALine/)
+[View the live project here.](https://nigelfell.github.io/CI_MS2_FourInALine/)
 
 This is the website for a Four in a Line Game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
 
-[View a screenshot of the responsive website](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/responsive-screen-shot.jpg)
+![View a screenshot of the responsive website](assets/docs/responsive.png)
 
 ## User Experience (UX)
 
@@ -14,28 +14,24 @@ This is the website for a Four in a Line Game. It is designed to be responsive a
 
     -   #### First Time Visitor Goals
 
-        1. As a First Time Visitor, I want to easily understand the main purpose of the site and learn more about the benefits of regular dog grooming and a friendly mobile dog grooming service.
-        2. As a First Time Visitor, I want to be able to easily navigate throughout the website to find content and contact information.
-        3. As a First Time Visitor, I want to be able to view the area covered by the mobile service in a clear presentation.
-        4. As a First Time Visitor, I want to be able to enter my contact information to initiate communication with the website owner.
-        5. As a First Time Visitor, I want to look at a gallery of photos/testimonials to understand what their customers think of them and see if they are trusted. I also want to locate their social media links to see their followings on social media to determine how trusted and known they are.
-        6. As a First Time Visitor, I want to find what services are included with a price list for different options and see the area covered by the mobile service.
+        1. As a First Time Visitor, I want to easily understand the main purpose of the site.
+        2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a clear presentation that is responsive on different devices.
+        3. As a First Time Visitor, I want to be able to view current scores.
+        4. As a First Time Visitor, I want to be able to see who's turn it is next.
+        5. As a First Time Visitor, I want to be able to see see the winner.
+        6. As a First Time Visitor, I want to be able to reset the game and start a new one.
         
     -   #### Returning Visitor Goals
 
-        1. As a Returning Visitor, I want to contact the business with any questions I may have or to book another appointment.
-        2. As a Returning Visitor, I want to write a review of the mobile service.
-        3. As a Returning Visitor, I want to find community links.
+        1. As a Returning Visitor, I want to play the Four in a Line game as per the first time visitor.
 
     -   #### Frequent User Goals
 
-        1. As a Frequent User, I want to check to see pictures of my dog being groomed in the gallery.
-        2. As a Frequent User, I want to check to see if there are any new social media posts.
-        3. As a Frequent User, I want to sign up to get email updates so that I am emailed about any changes to the dog grooming service.
+        1. As a Frequent User, I want to play the Four in a Line game as per the first time visitor.
 
 -   ### Design
     -   #### Colour Scheme
-        -   To create a modern look and feel against the background images grays and whites were used.
+        -   To create a modern look and feel that is familiar to the user who has played the physical version of the Four in a Line game.
     -   #### Typography
         -   Lato is the main font used on the site with Oswald used for the headings (h2). Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. Lato and Oswald fonts work well together. They are professional and readable fonts that still have charm and character.
     -   #### Imagery
