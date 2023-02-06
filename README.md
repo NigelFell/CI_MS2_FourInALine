@@ -17,55 +17,69 @@
 
 -    ### User stories
 
-    -   #### First Time Visitor Goals
-
+    -   First Time Visitor Goals:
         1. As a First Time Visitor, I want to easily understand the main purpose of the site.
-        2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a clear presentation that is responsive on different devices.
+        2. As a First Time Visitor, I want to be able to easily play the Four in a Line game in a clear 
+           presentation that is responsive on different devices.
         3. As a First Time Visitor, I want to be able to view how to play the game and the objective.
         4. As a First Time Visitor, I want to be able to view current scores.
         5. As a First Time Visitor, I want to be able to see who's turn it is next.
         6. As a First Time Visitor, I want to be able to see see the winner.
         7. As a First Time Visitor, I want to be able to reset the game and start a new one.
         
-    -   #### Returning Visitor Goals
-
+    -   Returning Visitor Goals:
         1. As a Returning Visitor, I want to play the Four in a Line game as per the first time visitor.
 
-    -   #### Frequent User Goals
-
+    -   Frequent User Goals:
         1. As a Frequent User, I want to play the Four in a Line game as per the first time visitor.
 
 -   ### Design
+
     -   #### Colour Scheme
-        -   To create a modern look and feel that is familiar to the user who has played the physical version of the Four in a Line game.
+        To create a modern look and feel that is familiar to the user who has played the physical version of the Four in a Line game.
+
     -   #### Typography
-        -   Raleway is the font used on the site. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. The Raleway font is an elegant sans-serif typeface.
+        Raleway is the font used on the site. Sans Serif is the fallback font in case for any reason the font isn't being imported into the site correctly. The Raleway font is an elegant sans-serif typeface.
+
     -   #### Imagery
-        -   Imagery is important but has been kept to a minimum to improve the sites upload time.
-    
-    -   ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
+        Imagery is important but has been kept to a minimum to improve the sites upload time.
+  
+    -   #### A screenshot of the visual design elements:
+        ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
 
-*   ### Wireframes
+-   ### Wireframes
 
-    -   Wireframes - ![View of the wireframe](assets/docs/wireframe.png)
+    -   #### The wireframe for a standard computer screen:
+        ![View of the standard wireframe](assets/docs/wireframe.png)
 
-    ### Initial Coding
-    -   The site was originally coded in Replit alongside the "Love Running" project and therefore takes a lot of the features and source code from this resource.
-    -   Once github and gitpod were introduced the source code and images for the site were migrated here via the upload command. Then regular git add and commits were used for source control.
+    -   #### The wireframe for a mobile device:
+        ![View of the mobile wireframe](assets/docs/wireframe-mobile.png)
 
-    ### Responsiveness
-    -   Each of the pages were also checked on ui.dev/amiresponsive, see the screenshots below:
+-   ### Initial Coding
 
-        - [View a screenshot of the responsive "Home" page](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/responsive-index.jpg)
-        - [View a screenshot of the responsive "Contact" page](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/responsive-contact.jpg)
-        - [View a screenshot of the responsive "Prices" page](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/responsive-prices.jpg)
-        - [View a screenshot of the responsive "Gallery" page](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/responsive-gallery.jpg)
+    -   The site was coded in Gitpod alongside the "Love Maths" project and therefore takes some of the 
+        features and code from this resource.
+
+-   ### Responsiveness
+    -   The site was initially checked with Google Chrome's Inspect facility using the Device Toolbar 
+        screenshots below:
+
+        - [View a screenshot of the standard computer](assets/docs/gc-resp-standard.png)
+        - [View a screenshot of the Samsung Galaxy S8](assets/docs/gc-resp-samsunggs8.png)
+        - [View a screenshot of the iPhone SE](assets/docs/gc-resp-iphonese.png)
+        - [View a screenshot of the iPhone 5](assets/docs/gc-resp-iphone5.png)
+        - [View a screenshot of the iPad Air](assets/docs/gc-resp-ipadair.png)
+
+#
 
 ## Features
 
 -   Responsive on all device sizes
-
 -   Interactive elements
+-   Interactive front-end that responds to the users' actions, allowing users to actively engage with 
+    data, alter the way the site displays the information to achieve their preferred goals.
+
+#
 
 ## Technologies Used
 
@@ -73,6 +87,7 @@
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+-   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 ### Frameworks, Libraries & Programs Used
 
@@ -80,27 +95,19 @@
     - W3 Schools was used as a HTML and CSS reference
 2. [Code Institute](https://learn.codeinstitute.net/ci_program/diplomainwebappdevelopment)
     - The "Love Running" project was used as the basis of the Pampered Pooches website
-3. [Replit](https://replit.com/)
-    - Replit was used to initially code the website alongside the "Love Running" project
-4. [Pexels](https://www.pexels.com/search/dog%20grooming/)
-    - Images for the website were downloaded from Pexels
-5. [Paint]
+3. [Paint]
     - Paint for Windows was used to crop and resize the images where required
-6. [Tiny JPG:](https://tinyjpg.com/)
-    - Tiny JPG was used to minimise the size of the image files used in the gallery page
-7. [Google Fonts:](https://fonts.google.com/)
-    - Google fonts were used to import the 'Oswald' and 'Lato' fonts into the style.css file which is used on all pages throughout the project.
-8. [Font Awesome:](https://fontawesome.com/)
-    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-9. [Git](https://git-scm.com/)
+4. [Google Fonts:](https://fonts.google.com/)
+    - Google fonts were used to import the 'Raleway' font into the style.css file which is used in the project.
+5. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-10. [GitHub:](https://github.com/)
+6. [GitHub:](https://github.com/)
     - GitHub is used to store the project code after being pushed from Git.
-11. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the [wireframes](https://github.com/) during the design process.
-12. [Material Design:](https://material.io/resources/color/)
+7. [Figma:](https://figma.com/)
+    - Figma was used to create the [wireframes](https://github.com/) during the design process.
+8. [Material Design:](https://material.io/resources/color/)
     - Material Design was used to create and test the colour scheme for the website
-13. [Google Chrome]
+9. [Google Chrome]
     - The Device Toolbar in Dev Tools was used to check the responsiveness of the site
 
 ## Testing
