@@ -1,12 +1,17 @@
 ![Four in a Line logo](assets/images/four_in_a_line.png)
 
-<h1 align="center">Four in a Line</h1>
+# Four in a Line
+
+### This is the website for a Four in a Line Game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
 
 [View the live project here.](https://nigelfell.github.io/CI_MS2_FourInALine/)
 
-This is the website for a Four in a Line Game. It is designed to be responsive and accessible on a range of devices, making it easy to navigate for potential users.
+#
 
+### A screenshot of the responsive website:
 ![A screenshot of the responsive website](assets/docs/responsive.png)
+
+---
 
 ## User Experience (UX)
 
@@ -38,11 +43,11 @@ This is the website for a Four in a Line Game. It is designed to be responsive a
     -   #### Imagery
         -   Imagery is important but has been kept to a minimum to improve the sites upload time.
     
-    -   ![A screenshot of the visual design elements](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/user-experience-design.jpg)
+    -   ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
 
 *   ### Wireframes
 
-    -   Wireframes - [View the wireframes](https://github.com/NigelFell/milestone-project1/blob/main/assets/docs/pampered-pooches-balsamiq-wireframes.pdf)
+    -   Wireframes - ![View of the wireframe](assets/docs/wireframe.png)
 
     ### Initial Coding
     -   The site was originally coded in Replit alongside the "Love Running" project and therefore takes a lot of the features and source code from this resource.
