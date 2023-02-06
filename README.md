@@ -61,14 +61,16 @@
         features and code from this resource.
 
 -   ### Responsiveness
-    -   The site was initially checked with Google Chrome's Inspect facility using the Device Toolbar 
-        screenshots below:
+    -   The site was initially checked with Google Chrome's Inspect facility using the Device Toolbar to 
+        check different device sizes, screenshots below:
 
         - [View a screenshot of the standard computer](assets/docs/gc-resp-standard.png)
         - [View a screenshot of the Samsung Galaxy S8](assets/docs/gc-resp-samsunggs8.png)
         - [View a screenshot of the iPhone SE](assets/docs/gc-resp-iphonese.png)
         - [View a screenshot of the iPhone 5](assets/docs/gc-resp-iphone5.png)
         - [View a screenshot of the iPad Air](assets/docs/gc-resp-ipadair.png)
+
+    -   The site was then checked with a Nokia 3.1 mobile phone running Andriod version 10
 
 #
 
