@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding for display -->
     <meta charset="UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Visable area on screen/initial zoom -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Website for users to play Four in a Line Game">
+    <meta name="keywords" content="game, games, four in a line, 4 in a line, connect 4">
+    <meta name="author" content="Nigel Fell">
 
     <!-- FontAwesome link: -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -13,18 +22,22 @@
     <link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>
 
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Four In A Line</title>
+    <title>Four In A Line Game</title>
 </head>
 <body>
     <h1 class="heading">
         <img class="logo" src="assets/images/four_in_a_line.png" alt="logo">
-        Four in a Line
+        Four in a Line Game
     </h1>
 
     <div class="game-area">
         <div class="controls-area">
-            <span id="whos-next">Who's Turn Next</span>
-            <button id="new-game">New Game</button>
+            <span id="whos-next" title="Shows which players turn it is or who has won the game!">
+                Who's Turn Next
+            </span>
+            <button id="new-game" title="Restarts the game!">
+                New Game
+            </button>
         </div>
         <div class="board-area">
             <table id="game-board">
