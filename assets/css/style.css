@@ -61,6 +61,7 @@ body {
     padding: 5px 0;
 }
 
+/* Game table styling including counters */
 #game-board {
     border-collapse: collapse;
     border: 16px solid yellow;
@@ -129,7 +130,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: white;
-    /* margin-top: 10px; */
     margin: 5px;
     background-color: #445361;
     border: 1px transparent;
