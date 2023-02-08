@@ -5,8 +5,14 @@ document.addEventListener("DOMContentLoaded", function() {
   let newGameButton = document.getElementById("new-game");
 
   newGameButton.addEventListener("click", function() {
-      resetGameBoard();
-      updateWhosTurnNext();
+    let whosNextElement = document.getElementById('whos-next');
+    if (whosNextElement.style.backgroundColor !== "green") {
+      if (!confirm("Please confirm you want to reset this unfinished game?")) {
+        return;
+      }
+    }
+    resetGameBoard();
+    updateWhosTurnNext();
   });
 
   let gameTable = document.getElementById("game-board");
@@ -35,18 +41,23 @@ function gameBoardClick(e) {
 
   let whosNextElement = document.getElementById('whos-next');
 
-  if (boardElement.tagName === "TH" && whosNextElement.style.backgroundColor !== "green") {
-    if (updateGameBoard(boardElement.cellIndex)) {
-      if (whosNextElement.style.backgroundColor === "red") {
-        whosNextElement.innerHTML = "Red Wins!";
-      }
-      else {
-        whosNextElement.innerHTML = "Blue Wins!";
-      }
-      whosNextElement.style.backgroundColor = "green";
+  if (boardElement.tagName === "TH") {
+    if (whosNextElement.style.backgroundColor === "green") {
+      alert(whosNextElement.textContent.split(" ")[0] + " has won, please start a New Game!");
     }
     else {
-      gameBoardMouseover(e);
+      if (updateGameBoard(boardElement.cellIndex)) {
+        if (whosNextElement.style.backgroundColor === "red") {
+          whosNextElement.innerHTML = "Red Wins!";
+        }
+        else {
+          whosNextElement.innerHTML = "Blue Wins!";
+        }
+        whosNextElement.style.backgroundColor = "green";
+      }
+      else {
+        gameBoardMouseover(e);
+      }
     }
   }
 }
@@ -185,7 +196,7 @@ function updateGameBoard(columnNum) {
   let rowNum = gameBoard.dropCounter(columnNum);
 
   if (rowNum < 0) {
-    alert("You clicked a column that was full!");
+    alert("Sorry this column is full!");
   }
   else {
     let whosNextElement = document.getElementById('whos-next');
