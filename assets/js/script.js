@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   newGameButton.addEventListener("click", function() {
     let whosNextElement = document.getElementById('whos-next');
-    if (whosNextElement.style.backgroundColor !== "green") {
+    if (!gameBoard.isInitialised() && whosNextElement.style.backgroundColor !== "green") {
       if (!confirm("Please confirm you want to reset this unfinished game?")) {
         return;
       }
