@@ -208,6 +208,9 @@ function updateGameBoard(columnNum) {
     else {
       counters[((rowNum + 1) * 7) + columnNum].style.backgroundColor = "blue";
     }
+
+    let counterDrop = new Audio('assets/sound/button-click.mp3');
+    counterDrop.play();
     
     if (gameBoard.checkWinner(columnNum, rowNum)) {
       if (whosNextElement.style.backgroundColor === "red") {
@@ -216,6 +219,10 @@ function updateGameBoard(columnNum) {
       else {
         updateScores("blue");
       }
+
+      let applause = new Audio('assets/sound/small-crowd-clapping.mp3');
+      applause.play();
+  
       return true;
     }
     else {
@@ -292,6 +299,23 @@ let gameBoard = {
 
       this.board.push(column);
     }
+  },
+
+/**
+   * isInitialised funtion
+   * Checks is the game board is clear i.e. initialised
+   * Returns true if clear, false otherwise
+  */
+  isInitialised: function() {
+    for (let columnNum = 0; columnNum < this.board.length; columnNum++) {
+      let column = this.board[columnNum];
+      for (let rowNum = 0; rowNum < column.length; rowNum++) {
+        if (column[rowNum] !== "white") {
+          return false;
+        }
+      }
+    }
+    return true;
   },
 
   /**
