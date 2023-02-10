@@ -125,7 +125,9 @@
     - Material Design was used to create and test the colour scheme for the website.
 10. [Free Sounds Library](https://www.freesoundslibrary.com/)
     - Sound effects were downloaded from the Free Sounds Library.
-11. [Google Chrome]
+11. [Font Awesome](https://fontawesome.com/)
+    - Font Awesome was used on the website to add icons for aesthetic and UX purposes.
+12. [Google Chrome]
     - The Device Toolbar in Dev Tools was used to check the responsiveness of the site.
 
 ## Testing
