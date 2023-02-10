@@ -57,6 +57,9 @@
 
     -   #### Imagery
         Imagery is important but has been kept to a minimum to improve the sites upload time.
+
+    -   #### Sound
+        Sound effects enhance the user experience with extra feedback on their actions.
   
     -   #### A screenshot of the visual design elements:
         ![A screenshot of the visual design elements](assets/docs/user-experience-design.png)
@@ -103,23 +106,27 @@
 ### Frameworks, Libraries & Programs Used
 
 1. [W3 Schools:](https://www.w3schools.com/)
-    - W3 Schools was used as a HTML and CSS reference
+    - W3 Schools was used as a HTML and CSS reference.
 2. [Code Institute](https://learn.codeinstitute.net/ci_program/diplomainwebappdevelopment)
-    - The "Love Running" project was used as the basis of the Pampered Pooches website
-3. [Paint]
-    - Paint for Windows was used to crop and resize the images where required
-4. [Google Fonts:](https://fonts.google.com/)
+    - The "Love Maths" project was used as the basis of the Four in a Line website.
+3. [Stack Overflow](https://stackoverflow.com/)
+    - Stack Overflow was used to search for solutions to specific requirements.
+4. [Paint]
+    - Paint for Windows was used to crop and resize the images/icons where required.
+5. [Google Fonts:](https://fonts.google.com/)
     - Google fonts were used to import the 'Raleway' font into the style.css file which is used in the project.
-5. [Git](https://git-scm.com/)
+6. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-6. [GitHub:](https://github.com/)
+7. [GitHub:](https://github.com/)
     - GitHub is used to store the project code after being pushed from Git.
-7. [Figma:](https://figma.com/)
+8. [Figma:](https://figma.com/)
     - Figma was used to create the [wireframes](https://github.com/) during the design process.
-8. [Material Design:](https://material.io/resources/color/)
-    - Material Design was used to create and test the colour scheme for the website
-9. [Google Chrome]
-    - The Device Toolbar in Dev Tools was used to check the responsiveness of the site
+9. [Material Design:](https://material.io/resources/color/)
+    - Material Design was used to create and test the colour scheme for the website.
+10. [Free Sounds Library](https://www.freesoundslibrary.com/)
+    - Sound effects were downloaded from the Free Sounds Library.
+11. [Google Chrome]
+    - The Device Toolbar in Dev Tools was used to check the responsiveness of the site.
 
 ## Testing
 
