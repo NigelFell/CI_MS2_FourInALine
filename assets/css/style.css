@@ -116,6 +116,10 @@ body {
     margin: 0;
 }
 
+#sound-on-off {
+    margin-left: 10px;
+}
+
 .rules-area {
     text-align: left;
 }

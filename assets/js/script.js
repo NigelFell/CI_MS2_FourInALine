@@ -122,6 +122,14 @@ function gameBoardMouseout(e) {
 }
 
 /**
+ * toggleSoundOnOff(soundOnOff) funtion
+ * Called from index.html to toggle the speaker icon soundOnOff on or off
+*/
+function toggleSoundOnOff(soundOnOff) {
+  soundOnOff.classList.toggle("fa-volume-xmark");
+}
+
+/**
  * buildGameTable() funtion
  * Build the HTML to create the game table
 */
@@ -195,6 +203,9 @@ function updateGameBoard(columnNum) {
   let gameTable = document.getElementById("game-board");
   let rowNum = gameBoard.dropCounter(columnNum);
 
+  let soundOnOff = document.getElementById("sound-on-off");
+  let soundOn = soundOnOff.className === "fa-solid fa-volume-high";
+
   if (rowNum < 0) {
     alert("Sorry this column is full!");
   }
@@ -209,8 +220,10 @@ function updateGameBoard(columnNum) {
       counters[((rowNum + 1) * 7) + columnNum].style.backgroundColor = "blue";
     }
 
-    let counterDrop = new Audio('assets/sound/button-click.mp3');
-    counterDrop.play();
+    if (soundOn) {
+      let counterDrop = new Audio('assets/sound/button-click.mp3');
+      counterDrop.play();
+    }
     
     if (gameBoard.checkWinner(columnNum, rowNum)) {
       if (whosNextElement.style.backgroundColor === "red") {
@@ -220,8 +233,10 @@ function updateGameBoard(columnNum) {
         updateScores("blue");
       }
 
-      let applause = new Audio('assets/sound/small-crowd-clapping.mp3');
-      applause.play();
+      if (soundOn) {
+        let applause = new Audio('assets/sound/small-crowd-clapping.mp3');
+        applause.play();
+      }
   
       return true;
     }
